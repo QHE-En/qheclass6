@@ -12,8 +12,10 @@
 
 ## 功能
 
-- 用 MyBatis-Plus 查询 user 表数据
-- 提供 REST API：GET /users
+- 查所有用户：GET /users
+- 新增用户：POST /users
+- 修改用户：PUT /users
+- 删除用户：DELETE /users/{id}
 
 ## 项目结构
 
@@ -31,6 +33,6 @@
 - [x] JDBC
 - [x] MyBatis
 - [x] SpringBoot + MyBatis-Plus
-- [ ] 增删改接口
+- [x] 增删改查接口
 - [ ] Vue
 - [ ] AI 应用开发
