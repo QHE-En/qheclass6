@@ -1,5 +1,6 @@
 package com.qiu.qheclass6.controller;
 
+import com.qiu.qheclass6.common.Result;
 import com.qiu.qheclass6.entity.User;
 import com.qiu.qheclass6.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,25 +16,26 @@ public class UserController {
     private UserMapper userMapper;
 
     @GetMapping
-    public List<User> findAll(){
-        return userMapper.selectList(null);
+    public Result<List<User>> findAll(){
+        List<User> list = userMapper.selectList(null);
+        return Result.success(list);
     }
 
     @PostMapping
-    public String insert(@RequestBody User user){
+    public Result<Void> insert(@RequestBody User user){
         userMapper.insert(user);
-        return "新增成功";
+        return Result.success();
     }
 
     @PutMapping
-    public String update(@RequestBody User user){
+    public Result<Void> update(@RequestBody User user){
         userMapper.updateById(user);
-        return "修改成功";
+        return Result.success();
     }
 
     @DeleteMapping("/{id}")
-    public String delete(@PathVariable Integer id){
+    public Result<Void> delete(@PathVariable Integer id){
         userMapper.deleteById(id);
-        return "删除成功";
+        return Result.success();
     }
 }
